@@ -1,6 +1,6 @@
 # CCA 3 – Computer Vision Practical Assignment (Units 3, 4 and 5)
 
-**Student:** _your name_ · **Roll no.:** _your roll number_
+**Student:** Vrushali Barhate · **PRN:** 1272250540
 
 | Link | |
 |---|---|
@@ -19,7 +19,6 @@ This project implements image restoration, segmentation, feature extraction, obj
 
 Other files:
 * [REPORT.md](REPORT.md) – the technical report (inputs, outputs, explanations, comparison tables, conclusion).
-* [notes.md](notes.md) – detailed study notes explaining every technique in simple language.
 * [requirements.txt](requirements.txt) – Python packages.
 
 ## Folder structure

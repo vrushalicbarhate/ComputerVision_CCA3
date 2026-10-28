@@ -26,7 +26,7 @@ All code is in Python using OpenCV, NumPy, Matplotlib, scikit-image and Ultralyt
 
 ## 2. Input data
 
-| File | Description | Device | Resolution / duration |
+| File | Description | Device |
 |---|---|---|---|
 | `data/photo1.jpg` | bench photo taken in goa | oneplus nord ce4 |
 | `data/photo2.jpg` | same scene as photo 1 from a different angle | oneplus nord ce4 |

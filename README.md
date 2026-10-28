@@ -5,7 +5,7 @@
 | Link | |
 |---|---|
 | Git repository | https://github.com/vrushalicbarhate/ComputerVision_CCA3 |
-| Google Drive | https://drive.google.com/drive/folders/19sJVs1wFgj5AbIVdJ_XmkazaDgCNh2IU?usp=sharing |
+| Google Drive (original photo, video, outputs) | https://drive.google.com/drive/folders/19sJVs1wFgj5AbIVdJ_XmkazaDgCNh2IU?usp=sharing |
 
 This project implements image restoration, segmentation, feature extraction, object recognition and motion estimation in Python, using **my own photographs and my own video**.
 
@@ -63,7 +63,6 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-> OpenCV is kept below version 5 because OpenCV 5 removed the Haar cascade face detector (`cv2.CascadeClassifier`) that Task 3 needs.
 
 ## Running
 

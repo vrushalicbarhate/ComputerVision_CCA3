@@ -3,10 +3,10 @@
 | | |
 |---|---|
 | **Student** | Vrushali Barhate |
-| **PRN** | 1272250540 |
+| **Roll number** | 1272250540 |
 | **Course** | Computer Vision – CCA 3 |
-| **Git repository** | _paste your GitHub URL here_ |
-| **Google Drive folder** (original photo, video, outputs) | _paste the Drive folder link here_ |
+| **Git repository** | https://github.com/vrushalicbarhate/ComputerVision_CCA3 |
+| **Google Drive folder** (original photo, video, outputs) | https://drive.google.com/drive/folders/19sJVs1wFgj5AbIVdJ_XmkazaDgCNh2IU?usp=sharing |
 
 > How to use this template: run all three notebooks first (the images below are loaded from `outputs/`), then replace every _italic placeholder_ and paste the tables that the notebooks print. To submit as PDF, open this file in VS Code and use a "Markdown PDF" extension, or run `pandoc REPORT.md -o REPORT.pdf`.
 
@@ -28,10 +28,10 @@ All code is in Python using OpenCV, NumPy, Matplotlib, scikit-image and Ultralyt
 
 | File | Description | Device | Resolution / duration |
 |---|---|---|---|
-| `data/photo1.jpg` | this photo consists of a table, it was taken in goa| oneplus nord ce4 |
-| `data/photo2.jpg` | same scene as photo 1 from a different angle | oneplus nord ce4 | _…_ |
-| `data/objects.jpg` | these are my dailyuse objects (watershed) | oneplys nord ce4 | _…_ |
-| `data/video.mp4` | people moving stock video, downloaded from youtube|
+| `data/photo1.jpg` | bench photo taken in goa | oneplus nord ce4 |
+| `data/photo2.jpg` | same scene as photo 1 from a different angle | oneplus nord ce4 |
+| `data/objects.jpg` | these are my daily use objects often found in my bags | oneplus nord ce4 |
+| `data/video.mp4` | stock video downloaded from youtube |
 
 All originals are unedited. For processing, photos are resized to 800 pixels wide and video frames to 480 pixels on the longer side, to keep the computation fast.
 
@@ -284,8 +284,7 @@ _Paste the comparison table printed by the notebook here:_
 
 ## 8. Conclusion
 
-_Write 5–8 sentences in your own words, for example:_
-_In this assignment I implemented … on my own photograph and video. For restoration, the median filter gave the best result on salt-and-pepper noise (PSNR … dB), while both filters were similar on Gaussian noise. Otsu thresholding with opening/closing produced clean masks, Canny worked best after blurring, and marker-based watershed separated … touching objects that a plain mask merged. SIFT matching remained reliable after rotation and resizing (inlier % …), confirming its invariance, while HOG described shape but is not rotation-invariant. YOLO detected more object types with confidence scores and handled rotated/dark images better than the Haar cascade, which was faster but missed … . For motion, frame differencing was fastest but only showed object edges, GMM gave full silhouettes after a short learning phase, and Lucas–Kanade gave the direction and speed of motion._
+In this assignment I implemented image restoration, segmentation, feature matching, object recognition and motion estimation on my own photographs and a stock video. For restoration, the Gaussian filter gave the best result on Gaussian noise (25.73 dB, SSIM 0.734, against 23.73 dB and 0.649 for the median filter), while the median filter was best on salt-and-pepper noise (24.37 dB, SSIM 0.774, against 22.94 dB and 0.568 for the Gaussian filter), because it discards the extreme black and white values. Otsu chose a threshold of 112, opening removed small white specks, and closing filled small holes. Canny worked best after blurring, with thresholds of (100, 200) giving 6.56% edge pixels, against 25.17% on the noisy image, which shows that noise should be removed before edge detection. On my object photo the plain binary mask counted 83 blobs (31 after ignoring small specks), while marker-based watershed found 17 objects after I lowered FG_RATIO to value, matching the 17 I counted by eye. SIFT matching kept an inlier rate of …% after rotation and …% after resizing, confirming its invariance, while HOG describes shape on a fixed grid and is not rotation-invariant.
 
 ---
 

@@ -5,7 +5,7 @@
 | Link | |
 |---|---|
 | Git repository | https://github.com/vrushalicbarhate/ComputerVision_CCA3 |
-| Google Drive https://drive.google.com/drive/folders/19sJVs1wFgj5AbIVdJ_XmkazaDgCNh2IU?usp=sharing |
+| Google Drive | https://drive.google.com/drive/folders/19sJVs1wFgj5AbIVdJ_XmkazaDgCNh2IU?usp=sharing |
 
 This project implements image restoration, segmentation, feature extraction, object recognition and motion estimation in Python, using **my own photographs and my own video**.
 

@@ -4,7 +4,7 @@
 |---|---|
 | **Student** | Vrushali Barhate |
 | **Roll number** | 1272250540 |
-| **Course** | Computer Vision – CCA 3 |
+| **Course** | Computer Vision – CCA 2 |
 | **Git repository** | https://github.com/vrushalicbarhate/ComputerVision_CCA3 |
 | **Google Drive folder** (original photo, video, outputs) | https://drive.google.com/drive/folders/19sJVs1wFgj5AbIVdJ_XmkazaDgCNh2IU?usp=sharing |
 

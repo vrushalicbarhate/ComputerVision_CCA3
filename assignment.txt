@@ -1,0 +1,125 @@
+CCA 3 - Assignment 
+Practical Coding Assignment — Units 3, 4 and 5 
+Programming Language: Python 
+Libraries: OpenCV, NumPy, Matplotlib, scikit-image and Ultralytics YOLO 
+Assignment Type: Individual Practical Assignment 
+1. Assignment Objective 
+The objective of this assignment is to implement important techniques from image restoration, image 
+segmentation, feature extraction, object recognition and motion estimation. 
+Each student must use their own photograph and self-recorded video to perform the assigned tasks. 
+Students must submit executable source code, output images, proper technical documentation, a Git 
+repository link and a project explanation video. 
+2. Dataset Collection 
+A. Original Photograph 
+1. Capture one original photograph using your own mobile phone or camera. 
+2. Select a photograph containing a suitable object or scene with visible details. 
+3. Preserve the original, unedited photograph. 
+4. Use this photograph for the image restoration, segmentation and feature extraction tasks wherever 
+applicable. 
+B. Original Video 
+1. Record an original video of approximately 15–30 seconds. 
+2. Include a moving person or object and sufficient background detail. 
+3. Keep the camera reasonably stable for at least part of the recording. 
+4. Preserve the original video without editing. 
+5. Use this video for object recognition, background subtraction and motion estimation. 
+Submit both original files with your project. 
+UNIT 3: IMAGE RESTORATION AND 
+SEGMENTATION 
+Task 1: Image Restoration and Segmentation 
+Using your own photograph or a suitable frame extracted from your video, perform the following 
+operations. 
+A. Image Restoration 
+1. Add Gaussian noise and salt-and-pepper noise to the photograph. 
+2. Apply median filtering and Gaussian filtering to restore the noisy images. 
+3. Compare the restored outputs with the original clean image. 
+4. Calculate PSNR and SSIM where applicable. 
+B. Morphological Processing and Segmentation 
+5. Convert a suitable image into a binary image using thresholding. 
+6. Apply erosion, dilation, opening and closing. 
+7. Apply Canny edge detection. 
+8. Perform watershed segmentation on a suitable image containing multiple or touching objects. 
+Expected output: Noisy images, restored images, binary masks, morphological results, edge maps and 
+segmentation results. 
+Compare the outputs and identify which techniques work best for your selected images. 
+UNIT 4: FEATURE EXTRACTION 
+Task 2: Feature Extraction and Image Matching 
+Using your own photograph and a second photograph of the same object or scene: 
+1. Extract and visualize Histogram of Oriented Gradients (HOG) features. 
+2. Detect SIFT keypoints and calculate descriptors. 
+3. Match the SIFT features between the two images. 
+4. Repeat the matching experiment after rotating or resizing one image. 
+5. Display and compare the matching results. 
+Expected output: HOG visualization, SIFT keypoints, feature-matching results and a comparison of 
+matching quality. 
+UNIT 5: OBJECT RECOGNITION AND 
+MOTION ESTIMATION 
+Task 3: Object Recognition Using Viola–Jones and YOLO 
+Using your photograph or selected frames from your self-recorded video: 
+1. Apply a pretrained Haar cascade classifier to detect faces or another supported object. 
+2. Apply a pretrained YOLO model to detect supported objects. 
+3. Display bounding boxes, class labels and confidence scores where applicable. 
+4. Compare the detection results. 
+5. Identify at least one case in which a detector misses an object or produces an incorrect detection, 
+if encountered. 
+Expected output: Detection images or video frames and a comparison of the two approaches. 
+Task 4: Video Motion Estimation 
+Using your self-recorded video: 
+1. Extract consecutive frames from the video. 
+2. Apply frame differencing to identify moving regions. 
+3. Apply Gaussian Mixture Model (GMM)-based background subtraction. 
+4. Apply Lucas–Kanade optical flow to estimate motion between frames. 
+5. Display the foreground masks and motion vectors. 
+6. Compare the results of frame differencing, background subtraction and optical flow. 
+Expected output: Selected video frames, foreground masks, motion visualizations and a comparison table. 
+3. Technical Documentation Requirements 
+Students must prepare basic documentation containing: 
+1. Input: Original photograph, original video, and details of the input data used. 
+2. Source Code: Code used to implement each task. 
+3. Output: All relevant output images, processed video frames, and results. 
+4. Explanation: A brief explanation of each task, the technique used, and the output obtained. 
+5. Comparison: Comparison of results wherever multiple techniques are applied. 
+6. Conclusion: A brief summary of the work performed and the results obtained. 
+All input and output images must be included with proper captions and brief explanations. 
+4. Git Repository Requirements 
+Every student must create a Git repository and push the complete source code to it. 
+The repository must contain: 
+● Python source files or Jupyter Notebooks. 
+● A README file explaining the assignment and execution steps. 
+● A requirements file listing the required Python packages. 
+● Relevant example outputs or selected result images. 
+● Instructions for obtaining and organizing the input dataset. 
+Large raw videos should be uploaded to Google Drive rather than unnecessarily committed to Git. 
+The Git repository URL must be clearly mentioned in the main technical report. 
+You need to give me access in any places it required, rahul.inchal.inchal24@gmail.com and 
+rahul.inchal.vf@mitwpu.edu.in  
+5. Project Explanation Video 
+You must record a video of approximately 5–8 minutes explaining their completed assignment. 
+The video must include: 
+1. Introduction to the assignment and its objectives. 
+2. Description of the original photograph and video. 
+3. Explanation of the algorithms implemented. 
+4. Demonstration of the source code. 
+5. Demonstration and explanation of important input and output results. 
+6. Comparison of the selected techniques. 
+Students must explain the work in their own words. A video containing only slides or a silent screen 
+recording will not be sufficient. 
+Upload the video to the Google Drive location provided by me and include its link in the main technical 
+report. 
+6. Final Submission Requirements 
+Every student must submit the following: 
+1. Original photograph. 
+2. Original self-recorded video. 
+3. Complete source code pushed to Git. 
+4. Git repository URL mentioned in the main technical report. 
+5. Complete technical documentation with input images, intermediate outputs, final outputs and 
+explanations. 
+6. Comparison tables and relevant performance measurements. 
+7. Project explanation video. 
+8. Any additional files required to execute the code. 
+Submission Locations 
+Google Drive: Upload all relevant project materials to the Google Drive link provided by me. 
+Git repository: Push the source code and related project files to Git. Mention the repository URL in the 
+main technical report. 
+Main technical report: Include the Git repository URL and project explanation video link. 
+Before submission, verify that all required files are uploaded, the repository is accessible and the code can 
+be executed. 

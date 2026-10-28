@@ -1,0 +1,8 @@
+# OpenCV 5 removed the Haar cascade face detector used in Unit 5, so stay on 4.x
+opencv-python>=4.8,<5
+numpy>=1.24
+matplotlib>=3.7
+scikit-image>=0.21
+ultralytics>=8.1
+notebook
+ipykernel

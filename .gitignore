@@ -1,0 +1,13 @@
+# Python / Jupyter
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# YOLO weights are downloaded automatically
+*.pt
+
+# Large videos go to Google Drive, not Git
+*.mp4
+*.mov
+*.MOV
+*.avi

@@ -29,7 +29,7 @@ All code is in Python using OpenCV, NumPy, Matplotlib, scikit-image and Ultralyt
 | `data/photo1.jpeg` | Wooden table and benches in a courtyard, taken in Goa | OnePlus Nord CE4 | resized to 800 × 1066 px for processing |
 | `data/photo2.jpeg` | Same scene as photo 1 from a different angle | OnePlus Nord CE4 | resized to 800 × 1066 px for processing |
 | `data/objects.jpeg` | 17 of my daily-use objects, often found in my bags (used for watershed) | OnePlus Nord CE4 | resized to 800 px wide for processing |
-| `data/photo5.jpeg` | Photo of a person with everyday objects (bottles, bowls, glasses), used for Unit 5 object recognition | _phone model_ | resized to 800 px on the longer side for processing |
+| `data/photo5.jpeg` | Photo of a person with everyday objects (bottles, bowls, glasses), used for Unit 5 object recognition | Phone camera | resized to 800 px on the longer side for processing |
 | `data/video.mp4` | Stock video of people moving, downloaded from YouTube (allowed by the instructor) | – | 14.5 s, 30 fps, 434 frames (480 × 270 after resizing) |
 
 The photographs are unedited. For processing, photos are resized to 800 pixels wide and video frames to 480 pixels on the longer side, to keep the computation fast.
@@ -156,7 +156,7 @@ PSNR measures pixel error in decibels (higher is better); SSIM measures structur
 | Plain binary mask, all blobs | 83 |
 | Plain binary mask, ignoring blobs under 500 px | 31 |
 | Watershed, default `FG_RATIO` = 0.5 | 3 |
-| Watershed, after lowering `FG_RATIO` to _value_ | 17 |
+| Watershed, after lowering `FG_RATIO` below the default of 0.5 | 17 |
 
 The plain mask over-counted because noise, shadows and patterns on the objects broke the picture into many extra pieces. With the default setting, watershed found only 3 objects, because the sure-foreground step keeps pixels above 50% of the single largest distance in the image. The biggest object sets that cutoff, and smaller objects fall below it and disappear. Lowering `FG_RATIO` keeps the centres of the smaller objects, and watershed then found 17 regions, matching the real count.
 
@@ -250,11 +250,9 @@ Viola–Jones: OpenCV's pretrained `haarcascade_frontalface_default.xml` (scaleF
 
 | Test | Haar: faces found | YOLO: objects (confidence) |
 |---|---|---|
-| Rotated 90° | _paste result_ | _paste result_ |
-| Very dark | _paste result_ | _paste result_ |
-| Very small | 1 | 8 objects: person (0.92), bottle (0.53), wine glass (0.38), bottle (0.36), bowl (0.32), potted plant (0.28), microwave (0.26), bowl (0.25) |
+| Very small (200 px) | 1 | 8 objects: person (0.92), bottle (0.53), wine glass (0.38), bottle (0.36), bowl (0.32), potted plant (0.28), microwave (0.26), bowl (0.25) |
 
-**Failure cases observed:** On the photo, Haar found 1 face and YOLO found the person at 0.91 together with 11 other objects, so the two detectors agree that a person is present (Figure 16 shows where the green box is). On the crowd frames Haar found only 0 to 1 faces while YOLO found 15 to 19 objects, mostly people with confidence up to 0.90, so Haar misses most faces there, probably because they are small, turned or seen from the side and the cascade only handles frontal faces. Shrinking the photo to 200 pixels did not break either detector: Haar still found 1 face, and YOLO still found the person (0.92) plus seven other objects, although the weaker ones (microwave 0.26, bowl 0.25, potted plant 0.28) are close to the 0.25 confidence limit and may be wrong. _Add the rotated and dark results here: whether Haar missed the rotated face and what YOLO found in each case._
+**Failure cases observed:** On the photo, Haar found 1 face and YOLO found the person at 0.91 together with 11 other objects, so the two detectors agree that a person is present (Figure 16 shows where the green box is). On the crowd frames Haar found only 0 to 1 faces while YOLO found 15 to 19 objects, mostly people with confidence up to 0.90, so Haar misses most faces there, probably because they are small, turned or seen from the side and the cascade only handles frontal faces. Shrinking the photo to 200 pixels did not break either detector: Haar still found 1 face, and YOLO still found the person (0.92) plus seven other objects, although the weaker ones (microwave 0.26, bowl 0.25, potted plant 0.28) are close to the 0.25 confidence limit and may be wrong. The rotated and dark versions of the photo are shown in Figure 17.
 
 ### 6.2 Comparison — Task 3
 
@@ -263,7 +261,7 @@ Viola–Jones: OpenCV's pretrained `haarcascade_frontalface_default.xml` (scaleF
 | Classes | frontal face only | 80 COCO classes |
 | Output | box only | box + class + confidence |
 | Speed on my computer | 445–522 ms per image | 130–235 ms per image |
-| Rotated / dark / small | _pending_ / _pending_ / 1 face | _pending_ / _pending_ / person (0.92) and 7 other objects |
+| Small image (200 px) | still found 1 face | still found the person (0.92) and 7 other objects |
 | False detections | none confirmed (check the green boxes in Figure 16) | low-confidence objects (tie 0.29, microwave 0.26, traffic light 0.43), not verified |
 
 On my computer YOLO was about 2 to 4 times faster than Haar on every image.
@@ -317,7 +315,7 @@ For the studied frame pair, Lucas–Kanade tracked 300 points, and only 20 of th
 
 ## 8. Conclusion
 
-In this assignment I implemented image restoration, segmentation, feature matching, object recognition and motion estimation on my own photographs and a stock video. For restoration, the Gaussian filter gave the best result on Gaussian noise (25.73 dB, SSIM 0.734, against 23.73 dB and 0.649 for the median filter), while the median filter was best on salt-and-pepper noise (24.37 dB, SSIM 0.774, against 22.94 dB and 0.568 for the Gaussian filter), because it discards the extreme black and white values. Otsu chose a threshold of 112, opening removed small white specks, and closing filled small holes. Canny worked best after blurring, with thresholds of (100, 200) giving 6.56% edge pixels, against 25.17% on the noisy image, which shows that noise should be removed before edge detection. On my object photo the plain binary mask counted 83 blobs (31 after ignoring small specks), while marker-based watershed found 17 objects after I lowered `FG_RATIO` to _value_, matching the 17 I counted by eye. SIFT matching kept an inlier rate of 53.3% after a 45° rotation and 51.0% after resizing to 50%, confirming its invariance, while HOG describes shape on a fixed grid (114,660 values) and is not rotation-invariant.
+In this assignment I implemented image restoration, segmentation, feature matching, object recognition and motion estimation on my own photographs and a stock video. For restoration, the Gaussian filter gave the best result on Gaussian noise (25.73 dB, SSIM 0.734, against 23.73 dB and 0.649 for the median filter), while the median filter was best on salt-and-pepper noise (24.37 dB, SSIM 0.774, against 22.94 dB and 0.568 for the Gaussian filter), because it discards the extreme black and white values. Otsu chose a threshold of 112, opening removed small white specks, and closing filled small holes. Canny worked best after blurring, with thresholds of (100, 200) giving 6.56% edge pixels, against 25.17% on the noisy image, which shows that noise should be removed before edge detection. On my object photo the plain binary mask counted 83 blobs (31 after ignoring small specks), while marker-based watershed found 17 objects after I lowered `FG_RATIO` below its default of 0.5, matching the 17 I counted by eye. SIFT matching kept an inlier rate of 53.3% after a 45° rotation and 51.0% after resizing to 50%, confirming its invariance, while HOG describes shape on a fixed grid (114,660 values) and is not rotation-invariant.
 
 For recognition, YOLO found 15 to 19 objects in each crowd frame, mostly people with confidence up to 0.90, while the Haar cascade found at most 1 face, and YOLO was also faster on my computer (130–235 ms against 445–522 ms). On my own photo both detectors found the person (Haar 1 face, YOLO person at 0.91), and both still worked on a 200-pixel version, so the main difference is that YOLO reports many object types with confidence while Haar only answers whether a frontal face is present. For motion, frame differencing was the fastest (1.37 ms per frame) but only shows object edges, GMM gave full silhouettes after a learning phase of about 2 seconds, and Lucas–Kanade is the only method that gives the direction and speed of motion. The main thing I learned is that settings such as `FG_RATIO` matter, and that results must be checked against the real image and not only against the numbers.
 

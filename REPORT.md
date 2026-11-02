@@ -26,7 +26,7 @@ All code is in Python using OpenCV, NumPy, Matplotlib, scikit-image and Ultralyt
 
 | File | Description | Device | Resolution / duration |
 |---|---|---|---|
-| `data/photo1.jpeg` | Wooden table and benches in a courtyard, taken in Goa | OnePlus Nord CE4 | resized to 800 × 1066 px for processing |
+| `data/photo1.jpeg` | Wooden table and benches in a courtyard | OnePlus Nord CE4 | resized to 800 × 1066 px for processing |
 | `data/photo2.jpeg` | Same scene as photo 1 from a different angle | OnePlus Nord CE4 | resized to 800 × 1066 px for processing |
 | `data/objects.jpeg` | 17 of my daily-use objects, often found in my bags (used for watershed) | OnePlus Nord CE4 | resized to 800 px wide for processing |
 | `data/photo5.jpeg` | Photo of a person with everyday objects (bottles, bowls, glasses), used for Unit 5 object recognition | Phone camera | resized to 800 px on the longer side for processing |

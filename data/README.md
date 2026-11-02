@@ -15,6 +15,5 @@ Notes:
 * The photos are the originals, with no editing or filters.
 * The video is **not** committed to Git (see `.gitignore`). The original video and all other files are in the Google Drive folder:
   https://drive.google.com/drive/folders/19sJVs1wFgj5AbIVdJ_XmkazaDgCNh2IU?usp=sharing
-* The notebooks read these exact file names. If you replace a file with one that has a different name or extension, change the path at the top of the matching notebook.
 * OpenCV cannot read `.HEIC` photos from iPhones. Convert them to `.jpg` or `.jpeg` first.
 * The notebooks need OpenCV 4.x (`opencv-python>=4.8,<5`). OpenCV 5 moved the Haar cascade face detector out of the main package, so the Viola–Jones cell fails there.
